@@ -13,9 +13,9 @@ CREATE TABLE employees (
     is_active BIT DEFAULT 1,                    -- Boolean representation (0 or 1)
     email VARCHAR(100) UNIQUE,                  -- Unique email
     profile_image VARBINARY(MAX)                -- Stores images or binary data
-);
+);```
 
-
+```
 ## 2️⃣ Explanation of Data Types
 INT IDENTITY(1,1) → Auto-incrementing integer (Primary Key).
 
