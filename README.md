@@ -8,7 +8,6 @@ Welcome to the **SQL Guide Repository**! 🚀 This repository is designed to hel
 SQL-Guide/
 │── README.md              # Overview of the project
 │── Basics/                
-│   ├── Introduction.md    # What is SQL?
 │   ├── Creating_Tables.md # How to create tables in SQL
 │   ├── Inserting_Rows.md  # How to insert data into tables
 │   ├── Updating_Data.md   # How to update data in tables
