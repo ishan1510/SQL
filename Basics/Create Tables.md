@@ -15,6 +15,7 @@ CREATE TABLE employees (
     profile_image VARBINARY(MAX)                -- Stores images or binary data
 );
 ```
+<font size="5">
 Explanation of Data Types:
 
 - INT IDENTITY(1,1) → Auto-incrementing integer (Primary Key).
@@ -25,7 +26,7 @@ Explanation of Data Types:
 - BIT → Boolean-like column (0 = false, 1 = true).
 - VARCHAR(100) → Variable-length text (non-Unicode).
 - VARBINARY(MAX) → Stores binary data (like images).
-
+</font>
 ## 2️. Adding Constraints 
 ```sql
 CREATE TABLE orders (
