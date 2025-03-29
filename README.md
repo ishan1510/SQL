@@ -12,11 +12,9 @@ SQL-Guide/
 │   ├── Inserting_Rows.md  # How to insert data into tables
 │   ├── Updating_Data.md   # How to update data in tables
 │   ├── Basic_Queries.md   # SELECT, WHERE, ORDER BY, etc.
-│   ├── Aggregations.md    # COUNT, SUM, AVG, MAX, MIN
-│   ├── Group_By.md        # Understanding GROUP BY
-│   ├── Having_vs_Where.md # Difference between HAVING and WHERE
+│   ├── Aggregations.md    # COUNT, SUM, AVG, MAX, MIN | Along with GROUP BY & HAVING
 
-│── Advanced/             
+│── Intermediate/             
 │   ├── Joins.md           # INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
 │   ├── Subqueries.md      # Nested queries
 │   ├── Indexing.md        # Improving performance
