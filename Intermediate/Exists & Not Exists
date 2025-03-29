@@ -1,0 +1,76 @@
+# EXISTS and NOT EXISTS in SQL Server
+
+The `EXISTS` and `NOT EXISTS` operators are used in SQL to check for the **existence or absence of rows** in a subquery. These operators are commonly used in filtering data efficiently.
+
+---
+
+### 1. EXISTS Operator
+The `EXISTS` operator returns **TRUE** if the subquery returns at least one row; otherwise, it returns **FALSE**.
+
+### Syntax
+```sql
+SELECT column_names
+FROM table_name
+WHERE EXISTS (
+    SELECT 1 FROM other_table WHERE condition
+);
+```
+🔹 The `SELECT 1` inside the subquery is used because the `EXISTS` check only **validates row existence**—it does not return any data.
+
+#### Example: Finding Employees in a Department
+```sql
+SELECT EmployeeID, EmployeeName
+FROM Employees e
+WHERE EXISTS (
+    SELECT 1 FROM Departments d
+    WHERE e.DepartmentID = d.DepartmentID
+    AND d.DepartmentName = 'HR'
+);
+```
+👉 **Explanation:** The query returns employees **only if** there is a matching row in the `Departments` table with `DepartmentName = 'HR'`.
+
+---
+
+### 3. NOT EXISTS Operator
+The `NOT EXISTS` operator returns **TRUE** if the subquery returns **no rows**; otherwise, it returns **FALSE**.
+
+### Syntax
+```sql
+SELECT column_names
+FROM table_name
+WHERE NOT EXISTS (
+    SELECT 1 FROM other_table WHERE condition
+);
+```
+
+#### Example: Finding Employees Without a Department
+```sql
+SELECT EmployeeID, EmployeeName
+FROM Employees e
+WHERE NOT EXISTS (
+    SELECT 1 FROM Departments d
+    WHERE e.DepartmentID = d.DepartmentID
+);
+```
+👉 **Explanation:** The query returns employees **who are not assigned to any department**.
+
+---
+
+## Performance Considerations
+- ✅ `EXISTS` is usually **faster** than `IN` when dealing with large datasets because it **stops searching** as soon as it finds a match.
+- ✅ `NOT EXISTS` can be **slower** than `NOT IN` if the subquery is not indexed properly.
+- ✅ Always ensure indexes exist on the **columns used in the subquery condition** to improve performance.
+
+---
+
+## When to Use EXISTS vs NOT EXISTS?
+| Use Case | Recommended Operator |
+|----------|----------------------|
+| Check if related records exist | `EXISTS` |
+| Find records without a match | `NOT EXISTS` |
+| Optimizing large datasets with subqueries | `EXISTS` (over `IN`) |
+
+---
+
+## Conclusion
+The `EXISTS` and `NOT EXISTS` operators are powerful tools for checking row existence efficiently. When dealing with **large datasets**, they are often more optimized than traditional `IN` or `NOT IN` clauses. 🚀
