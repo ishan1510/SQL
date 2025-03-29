@@ -1,0 +1,111 @@
+# SQL WINDOW FUNCTIONS
+
+## Introduction
+Window functions perform calculations across a set of table rows related to the current row, **without collapsing rows into a single result** like aggregate functions. They help in ranking, running totals, and performing calculations within specific groups of data.
+
+The `PARTITION BY` clause is used within window functions to divide the data into groups, so calculations apply separately to each group.
+
+## Common Window Functions
+
+### 1. ROW_NUMBER()
+Assigns a unique row number to each row based on the specified order.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       ROW_NUMBER() OVER (PARTITION BY Department ORDER BY Salary DESC) AS RowNum
+FROM Employees;
+```
+
+👉 This assigns a row number within each department, ordered by salary (highest first).
+
+---
+
+### 2. RANK()
+Assigns a rank to each row, **but gives the same rank to duplicate values** and skips the next rank.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       RANK() OVER (PARTITION BY Department ORDER BY Salary DESC) AS Rank
+FROM Employees;
+```
+
+👉 If two employees have the same salary, they get the same rank, and the next rank is skipped (e.g., 1, 2, 2, 4).
+
+---
+
+### 3. DENSE_RANK()
+Similar to `RANK()`, but **does not skip numbers** when duplicates exist.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       DENSE_RANK() OVER (PARTITION BY Department ORDER BY Salary DESC) AS DenseRank
+FROM Employees;
+```
+
+👉 If two employees have the same salary, they get the same rank, but the next rank is not skipped (e.g., 1, 2, 2, 3).
+
+---
+
+### 4. NTILE(n)
+Divides the dataset into `n` equal parts and assigns a group number.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       NTILE(4) OVER (PARTITION BY Department ORDER BY Salary DESC) AS Quartile
+FROM Employees;
+```
+
+👉 This splits employees within each department into **4 groups (quartiles)** based on salary.
+
+---
+
+### 5. LAG() and LEAD()
+Retrieve previous (`LAG`) or next (`LEAD`) row values without using self-joins.
+
+#### LAG(): Get the previous row's value
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       LAG(Salary, 1, 0) OVER (PARTITION BY Department ORDER BY Salary DESC) AS PrevSalary
+FROM Employees;
+```
+
+👉 Retrieves the salary of the **previous employee** in the department.
+
+#### LEAD(): Get the next row's value
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       LEAD(Salary, 1, 0) OVER (PARTITION BY Department ORDER BY Salary DESC) AS NextSalary
+FROM Employees;
+```
+
+👉 Retrieves the salary of the **next employee** in the department.
+
+---
+
+### 6. SUM() with PARTITION BY (Running Total)
+Calculates the running total of salaries within each department.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       SUM(Salary) OVER (PARTITION BY Department ORDER BY Salary DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RunningTotal
+FROM Employees;
+```
+
+👉 This adds up salaries **from the highest to the current row** in each department.
+
+---
+
+### 7. AVG() with PARTITION BY
+Finds the average salary within each department, **but repeats the result for each row**.
+
+```sql
+SELECT EmployeeID, Name, Department, Salary,
+       AVG(Salary) OVER (PARTITION BY Department) AS AvgSalary
+FROM Employees;
+```
+
+👉 This shows the **average salary per department** alongside each employee’s salary.
+
+
+## Conclusion
+Window functions allow you to perform calculations across sets of rows while keeping all rows in the output. They are incredibly useful for analytical queries and reporting. 🚀
