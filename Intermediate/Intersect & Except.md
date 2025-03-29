@@ -10,7 +10,7 @@ Both operations require the queries to have the **same number of columns with co
 
 ---
 
-### INTERSECT: Find Common Records
+### 1. INTERSECT: Find Common Records
 The `INTERSECT` operator returns **only the rows that exist in both result sets**.
 
 Example : Find employees who are **both** in the Sales and Marketing departments.
@@ -25,7 +25,7 @@ SELECT EmployeeID, Name FROM MarketingEmployees;
 
 ---
 
-### EXCEPT: Find Unique Records
+### 2. EXCEPT: Find Unique Records
 The `EXCEPT` operator returns **only the rows from the first query that do not appear in the second**.
 
 Example : Find employees who are in Sales but **not** in Marketing.
@@ -40,7 +40,7 @@ SELECT EmployeeID, Name FROM MarketingEmployees;
 
 ---
 
-### LEFT ANTI JOIN (Alternative to EXCEPT)
+### 3. LEFT ANTI JOIN (Alternative to EXCEPT)
 Some databases don’t support `EXCEPT`. You can achieve the same result using a **LEFT JOIN with NULL filtering**.
 
 ```sql
