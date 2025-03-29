@@ -16,9 +16,9 @@ WHEN NOT MATCHED THEN
 ---
 
 ### When to Use MERGE?
-✅ **Data Synchronization** – Keep tables in sync with changes.
-✅ **ETL Processes** – Manage updates in data warehouses.
-✅ **SCD Type 2 Implementation** – Track history with new records.
+✅ **Data Synchronization** – Keep tables in sync with changes.<br>
+✅ **ETL Processes** – Manage updates in data warehouses.<br>
+✅ **SCD Type 2 Implementation** – Track history with new records.<br>
 
 ---
 
