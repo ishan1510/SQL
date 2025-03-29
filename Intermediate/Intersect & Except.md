@@ -56,5 +56,5 @@ WHERE m.EmployeeID IS NULL;
 
 ---
 
-## Conclusion
+### Conclusion
 `INTERSECT` and `EXCEPT` are powerful SQL operators for comparing datasets. Understanding these operations helps in data filtering, deduplication, and advanced querying. 🚀
