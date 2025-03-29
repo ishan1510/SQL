@@ -23,6 +23,7 @@ SQL-Guide/
 │   ├── Intersect_Except.md # INTERSECT and EXCEPT operations
 │   ├── Union_UnionAll.md  # UNION vs UNION ALL
 │   ├── Slow_Changing_Dimensions.md # Understanding SCD
+
 │── Practice/
 │   ├── Challenges.md      # SQL questions and exercises
 │   ├── Solutions.md       # Answers to exercises
