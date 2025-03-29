@@ -1,0 +1,38 @@
+# 📘 Inserting Rows in SQL  
+
+## 1️. Basic Syntax  
+To insert data into a table, use the `INSERT INTO` statement:  
+```sql
+INSERT INTO employees (employee_id, first_name, last_name, birth_date, hire_date, salary, is_active, email)
+VALUES (1, 'John', 'Doe', '1990-05-15', '2022-01-10', 60000.00, 1, 'john.doe@example.com');
+```
+
+##  2. Inserting Multiple Rows
+You can insert multiple rows in a single query:
+```sql
+INSERT INTO employees (employee_id, first_name, last_name, birth_date, hire_date, salary, is_active, email)  
+VALUES  
+    (2, 'Jane', 'Smith', '1985-08-20', '2021-03-15', 75000.00, 1, 'jane.smith@example.com'),  
+    (3, 'Mike', 'Johnson', '1992-11-02', '2020-06-20', 65000.00, 1, 'mike.johnson@example.com');
+```
+
+## 3. Inserting Data into Specific Columns
+If you don’t want to insert values for all columns, specify only the required columns:
+```sql
+INSERT INTO employees (first_name, last_name, salary)  
+VALUES ('Emma', 'Brown', 50000.00);
+```
+
+## 4. Using INSERT INTO ... SELECT
+You can insert data from another table using SELECT:
+```sql
+INSERT INTO backup_employees (employee_id, first_name, last_name, salary)  
+SELECT employee_id, first_name, last_name, salary FROM employees WHERE is_active = 1;
+```
+
+## 5. Inserting Data with DEFAULT Values
+If a column has a default value, you can explicitly use the DEFAULT keyword:
+```sql
+INSERT INTO employees (first_name, last_name, salary, is_active)  
+VALUES ('Liam', 'Wilson', 70000.00, DEFAULT);
+```
