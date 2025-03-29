@@ -1,6 +1,5 @@
 # SQL INTERSECT and EXCEPT
 
-### Introduction
 `INTERSECT` and `EXCEPT` are **set operations** used in SQL to compare the results of two queries.
 
 - `INTERSECT` returns **only the common records** from both queries.
@@ -53,6 +52,13 @@ WHERE m.EmployeeID IS NULL;
 
 👉 This finds employees in Sales who **don’t** exist in Marketing.
 
+
+---
+
+### When to Use INTERSECT and EXCEPT?
+- Use `INTERSECT` to find **common records** in two datasets.
+- Use `EXCEPT` to find **unique records** in the first dataset that don’t exist in the second.
+- Use **LEFT ANTI JOIN** or **RIGHT ANTI JOIN** if `EXCEPT` is not supported in your database.
 
 ---
 
