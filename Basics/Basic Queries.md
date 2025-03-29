@@ -1,0 +1,160 @@
+# 📘 Basic SQL Queries  
+
+This section covers essential SQL queries like `SELECT`, `WHERE`, `ORDER BY`, `DISTINCT`, `LIMIT (TOP)`, and more.  
+
+---
+
+## 1️. Retrieving Data: `SELECT`  
+The `SELECT` statement is used to fetch data from a table.  
+
+```sql
+SELECT * FROM employees;
+```
+👉 Retrieves all columns from the employees table.
+
+```sql
+SELECT first_name, last_name, salary FROM employees;
+```
+👉 Retrieves only first_name, last_name, and salary from employees.
+
+
+
+## 2. Filtering Data: WHERE
+Use WHERE to filter records based on conditions.
+```sql
+SELECT * FROM employees  
+WHERE salary > 50000;
+```
+👉 Retrieves employees with a salary greater than 50,000.
+
+```sql
+SELECT * FROM employees  
+WHERE department = 'IT' AND is_active = 1;
+```
+👉 Retrieves active employees from the IT department.
+
+```sql
+SELECT * FROM employees  
+WHERE department = 'IT' OR designation = 'Manager';
+```
+👉 Retrieves all employees from the IT department and all employees who are Manager's, irrespective of their department.
+
+🔹 Comparison Operators in SQL:
+
+| Operator | Description |
+|----------|------------|
+| `=`      | Equals |
+| `!=` or `<>` | Not equal |
+| `>`      | Greater than |
+| `<`      | Less than |
+| `>=`     | Greater than or equal to |
+| `<=`     | Less than or equal to |
+
+
+
+
+## 4. Sorting Data: ORDER BY
+The ORDER BY clause sorts query results.
+```sql
+SELECT * FROM employees  
+ORDER BY salary ASC;
+```
+👉 Sorts employees by salary in ascending order.
+
+```sql
+SELECT * FROM employees  
+ORDER BY last_name DESC;
+```
+👉 Sorts employees by last name in descending order.
+
+
+
+## 4. Select unique values: DISTINCT
+Use DISTINCT to retrieve unique values.
+```sql
+SELECT DISTINCT department FROM employees;
+```
+👉 Retrieves unique department names from employees.
+
+
+
+## 5. Limiting Results: TOP
+Use TOP to limit the number of rows returned.
+```sql
+SELECT TOP 5 * FROM employees ORDER BY salary DESC;
+```
+👉 Retrieves the top 5 highest-paid employees.
+
+
+
+## 6. Pattern Matching: LIKE
+The LIKE operator is used for pattern matching in text columns.
+
+```sql
+SELECT * FROM employees WHERE email LIKE '%@gmail.com';
+```
+👉 Finds employees with Gmail addresses.
+
+```sql
+SELECT * FROM employees WHERE first_name LIKE '_a%';
+```
+👉 Finds all customers that have "a" in the second position:.
+
+```sql
+SELECT * FROM employees WHERE first_name LIKE '%[ae]%';
+```
+👉 Finds employees whose have letter a & e in their first_name.
+
+🔹 Wildcard Characters in LIKE:
+| Wildcard | Description |
+|----------|------------|
+| `%`      | Matches any number of characters (including none) |
+| `_`      | Matches a single character |
+| `[abc]`  | Matches any single character inside the brackets |
+| `[^abc]` | Matches any single character **not** inside the brackets |
+
+There are so many possibilities on what you could achieve using this, keep exploring!
+
+
+
+## Checking for NULL Values: IS NULL
+Use IS NULL and IS NOT NULL to check for missing values.
+```sql
+SELECT * FROM employees WHERE email IS NULL;
+```
+👉 Finds employees who don’t have an email address.
+
+```sql
+SELECT * FROM employees WHERE phone_number IS NOT NULL;
+```
+👉 Finds employees who have a phone number.
+
+
+
+## 8. Using BETWEEN for Range Queries
+Use BETWEEN to filter values within a range.
+```sql
+SELECT * FROM employees WHERE salary BETWEEN 40000 AND 80000;
+```
+👉 Finds employees with a salary between 40,000 and 80,000.
+
+```sql
+SELECT * FROM employees WHERE birth_date BETWEEN '1985-01-01' AND '1995-12-31';
+```
+👉 Finds employees born between 1985 and 1995.
+
+
+
+## 9. Using IN for Multiple Values
+Use IN to match multiple values.
+```sql
+SELECT * FROM employees WHERE employee_id IN (101, 102, 105);
+```
+👉 Finds employees with specific IDs.
+
+```sql
+SELECT * FROM employees WHERE department NOT IN ('IT', 'HR', 'Finance');
+```
+👉 Finds employees who are not in IT, HR, or Finance department.
+
+
