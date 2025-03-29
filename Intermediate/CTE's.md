@@ -1,0 +1,75 @@
+# SQL Common Table Expressions (CTEs)
+
+A **Common Table Expression (CTE)** is a temporary result set that you can reference within a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement. CTEs make queries **more readable**, **easier to maintain**, and allow **recursive queries**.
+
+Syntax -
+```sql
+WITH cte_name AS (
+    -- Your Query Here
+    SELECT column1, column2 FROM some_table
+)
+SELECT * FROM cte_name;
+```
+
+---
+
+### Why Use CTEs?
+✅ Improves readability and structure.
+✅ Helps break down complex queries.
+✅ Allows recursive queries.
+✅ Can be referenced multiple times in a query.
+
+---
+
+### Using a CTE
+Example : Find employees with salaries above the department average.
+
+```sql
+WITH DeptAvg AS (
+    SELECT Department, AVG(Salary) AS AvgSalary
+    FROM Employees
+    GROUP BY Department
+)
+SELECT e.EmployeeID, e.Name, e.Salary, e.Department
+FROM Employees e
+JOIN DeptAvg d ON e.Department = d.Department
+WHERE e.Salary > d.AvgSalary;
+```
+
+👉 The CTE (`DeptAvg`) calculates the average salary per department, and the main query retrieves employees earning above the average.
+
+---
+
+### Recursive CTEs
+Recursive CTEs allow queries that **reference themselves**, useful for hierarchical data like employee-manager relationships.
+
+Example: Recursive CTE for Employee Hierarchy
+```sql
+WITH EmployeeHierarchy AS (
+    SELECT EmployeeID, Name, ManagerID, 1 AS Level
+    FROM Employees
+    WHERE ManagerID IS NULL  -- Start with top-level manager
+    
+    UNION ALL
+    
+    SELECT e.EmployeeID, e.Name, e.ManagerID, eh.Level + 1
+    FROM Employees e
+    JOIN EmployeeHierarchy eh ON e.ManagerID = eh.EmployeeID
+)
+SELECT * FROM EmployeeHierarchy;
+```
+
+👉 This finds all employees and their reporting hierarchy levels.
+
+---
+
+## When to Use CTEs?
+- **Complex Queries**: Breaking large queries into smaller parts.
+- **Recursive Queries**: Handling hierarchical data (e.g., employee-manager relationships, folder structures).
+- **Multiple References**: When using the same subquery multiple times.
+- **Improved Readability**: Making SQL queries easier to understand and maintain.
+
+---
+
+## Conclusion
+CTEs are a powerful SQL feature that enhances query organization, improves maintainability, and enables recursive operations. 🚀
