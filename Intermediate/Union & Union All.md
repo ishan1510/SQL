@@ -48,7 +48,7 @@ SELECT EmployeeID, Name FROM MarketingEmployees;
 
 ---
 
-## When to Use UNION and UNION ALL?
+### When to Use UNION and UNION ALL?
 - Use `UNION` when you want **unique** records.
 - Use `UNION ALL` when you need **all records, including duplicates**.
 - `UNION` is useful when merging datasets **without duplicates**.
