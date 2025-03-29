@@ -22,7 +22,7 @@ WHEN NOT MATCHED THEN
 
 ---
 
-### Example: Updating Employee Records
+### 1. Updating Employee Records
 
 Consider two tables:
 - `Employees` (Target Table)
@@ -42,7 +42,7 @@ WHEN NOT MATCHED THEN
 
 ---
 
-### Handling DELETE in MERGE
+### 2. Handling DELETE in MERGE
 If the record exists in the target but **not** in the source, it can be deleted.
 
 ```sql
@@ -58,7 +58,7 @@ WHEN NOT MATCHED BY SOURCE THEN
 
 ---
 
-### MERGE for SCD Type 2
+### 3. MERGE for SCD Type 2
 MERGE can be used to **track history** by marking old records as inactive.
 
 ```sql
