@@ -13,29 +13,23 @@ SQL-Guide/
 │   ├── Updating_Data.md   # How to update data in tables
 │   ├── Basic_Queries.md   # SELECT, WHERE, ORDER BY, etc.
 │   ├── Aggregations.md    # COUNT, SUM, AVG, MAX, MIN | Along with GROUP BY & HAVING
+│   ├── Delete-Truncate-Drop.md   # Difference between Delete, Trucnate and Drop
 
 │── Intermediate/             
-│   ├── Joins.md           # INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
-│   ├── Subqueries.md      # Nested queries
-│   ├── Indexing.md        # Improving performance
-│   ├── Window_Functions.md # RANK(), DENSE_RANK(), PARTITION BY
-│   ├── CTEs.md            # Common Table Expressions (WITH clause)
-│   ├── Intersect_Except.md # INTERSECT and EXCEPT operations
-│   ├── Union_UnionAll.md  # UNION vs UNION ALL
+│   ├── Joins.md             # INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
+│   ├── Intersect & Except.md    # What is Intersect & Except in SQL
+│   ├── Union & Union All.md     # How does UNION and UNION ALL work
+│   ├── Subqueries.md        # What are sub-queries and when to use them
+│   ├── Exists & Not Exists.md    # What is Exists & Not Exists in SQL
+│   ├── Indexing.md          # Improving performance using Indexing
+│   ├── Window_Functions.md  # RANK(), DENSE_RANK(), and ROW_NUMBER() along with PARTITION BY
+│   ├── CTEs.md              # What Common Table Expressions (CTE) & when to use them
 │   ├── Slow_Changing_Dimensions.md # Understanding SCD
+│   ├── Merge.md             # Merge Operation and its uses
 
-│── Practice/
-│   ├── Challenges.md      # SQL questions and exercises
-│   ├── Solutions.md       # Answers to exercises
+│── Advance/             
+│   ├── Performance Optimization.md        # How to optimize your queries
+│   ├── SP Functions & Triggers.md         # What are Stored Procedures, Functions and Triggers in SQL
+│   ├── Transactions & Error Handling.md   
 
 
-## 📌 What You’ll Learn
-✅ Basic SQL Queries (SELECT, INSERT, UPDATE, DELETE)  
-✅ Creating and Modifying Tables  
-✅ Aggregations and Filtering Data  
-✅ Joins and Relationships Between Tables  
-✅ Subqueries and Common Table Expressions (CTEs)  
-✅ Advanced Topics like Indexing, Window Functions, and Transactions  
-✅ INTERSECT, EXCEPT, UNION, and UNION ALL  
-✅ Slow Changing Dimensions (SCD)  
-✅ Hands-on Practice with SQL Challenges  
