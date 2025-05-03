@@ -15,6 +15,7 @@ SQL-Guide/
 │   ├── Basic_Queries.md           # Covers SELECT, WHERE, ORDER BY, DISTINCT & Operators — the core of querying
 │   ├── Aggregations.md            # How to summarize data using COUNT, SUM, GROUP BY, HAVING, etc.
 │   ├── Delete-Truncate-Drop.md    # Differences and use-cases for DELETE, TRUNCATE, and DROP commands
+│   ├── Alter-Table-Columns.md     # add, delete, or modify existing columns
 │
 │── Intermediate/                  # Builds on basics with powerful SQL techniques
 │   ├── Joins.md                   # Guide to INNER, LEFT, RIGHT, FULL joins & more with examples
